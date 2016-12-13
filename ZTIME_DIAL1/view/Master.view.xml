@@ -1,0 +1,82 @@
+<core:View controllerName="ZTime_dial.view.Master" xmlns:me = "sap.me" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:table="sap.ui.table" xmlns="sap.m" xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+<SplitApp id="SplitAppDemo" initialDetail="detail" initialMaster="master" >
+<detailPages>
+<Page id="detail">
+				<!--</SegmentedButton>     -->
+     <l:VerticalLayout class="sapUiSmallMargin" id="verticalNotif">				
+		<l:content>
+			<List id="notificationList" class="sapContrast sapContrastPlus">
+				<NotificationListItem
+						title="You can persue Open SAP training on HCP"
+						description="HCP training starts from last week of December 2016"
+						showCloseButton="true"
+						datetime="1 hour"
+						unread="true"
+						priority="None"
+						close="onItemClose"
+						press="onListItemPress"
+						authorName="Jon Black"
+						>
+
+					</NotificationListItem>
+			</List>
+			</l:content>	
+			</l:VerticalLayout>
+        <me:Calendar id="durationCalendar" selectionMode="MULTIPLE" tapOnDate="onSelect" changeRange="onChangeRange"/>
+<Panel id = "recordPanel" expandable="true" expanded="false" headerText="Recording" width="auto" class="sapUiResponsiveMargin">
+     <l:VerticalLayout class="sapUiSmallMargin" id="vertical">
+				<!--<SegmentedButton selectedButton="Record">-->
+				<!--	<Button icon="sap-icon://stop" text="Record" press = "onRecord" id="Record"/>-->
+				<!--	<Button icon="sap-icon://record" text="Timer" id="Timer" press = "onTimer"/>-->
+				<!--	<Button icon="sap-icon://action-settings" text="Settings" press = "onSettings" />-->
+
+
+        <l:HorizontalLayout id="horizontal1" >
+        </l:HorizontalLayout>
+        <!--<l:HorizontalLayout >-->
+        <!--    <RadioButton text="One Week" select="changeToOneWeek" groupName="rangeGroup"  selected="true" />-->
+        <!--    <RadioButton text="Two Weeks" select="changeToTwoWeeks" groupName="rangeGroup" />-->
+        <!--    <RadioButton text="One Month" select="changeToOneMonth" groupName="rangeGroup"  />-->
+        <!--    <RadioButton text="Two Months" select="changeToTwoMonths" groupName="rangeGroup"/>-->
+        <!--</l:HorizontalLayout>-->
+        <l:HorizontalLayout id="horizontal2" >
+        </l:HorizontalLayout>        
+        <HBox id="horizontal3" >
+        </HBox>          
+    </l:VerticalLayout>
+  
+  </Panel>
+<Panel id = "ListPanel" expandable="true" expanded="false" headerText="Records" width="auto" class="sapUiResponsiveMargin">
+			<Table id="ENTRY_LIST_CONTENTS" mode="MultiSelect" select="onItemSelect">
+			
+			</Table>
+</Panel>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Button type="Accept" text="SAVE" press="onSave" />
+				<!--<Button text="Default" press="onPress" />-->
+				<Button icon="sap-icon://action" press="onPress" />
+			</Toolbar>
+		</footer>  
+  </Page>
+ </detailPages>
+ <masterPages>
+ 			<Page id="master1" title="Settings" icon="sap-icon://action" class="sapUiStdPage" 
+			
+				  navButtonPress="onPressMasterBack">
+				  <!--showNavButton="true"-->
+				<content>
+					<List itemPress="onListItemPress">
+						<items>
+							<StandardListItem title="Manual Recording" type="Active" custom:to="Manual"/>
+							<StandardListItem title="Timer" type="Active" custom:to="Timer"/>
+							<StandardListItem title="Geo Fence Settings" type="Active" custom:to="GeoFence"/>
+							<StandardListItem title="KPI Monitor" type="Active" custom:to="KPI"/>
+						</items>
+					</List>
+				</content>
+			</Page>
+		</masterPages>
+ </SplitApp>
+</core:View>
